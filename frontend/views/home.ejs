@@ -1,0 +1,234 @@
+<%- include('../partials/_head.ejs'); %>
+<%- include('../partials/home.topbar.ejs'); %>
+    <style>
+
+        .home header {
+            background: var(--svg-header) no-repeat left/cover;
+            height: 100vh;
+        }
+
+        .home header .xx h1 {
+            color: white;
+
+        }
+
+        .home header .xx h1:nth-of-type(1) {
+            opacity: .8;
+        }
+
+        .home header .xx p {
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: white;
+        }
+
+        .home header .reserve,
+        .home header .menu {
+            padding: 5px 10px;
+            border-radius: 8px;
+            align-content: center;
+        }
+
+        .home header .reserve {
+            color: var(--primary);
+            border: 1px solid white;
+            background: white;
+            transition: background-position 1.1s ease, color 1s ease;
+            margin-right: .2rem;
+        }
+
+        .home header .reserve:hover {
+            color: white;
+            background-image: var(--svg-reserve);
+            background-position: 100% 70%;
+            background-size: auto 100px;
+        }
+
+        .home header .menu {
+            color: white;
+            border: 1px solid white;
+            background: var(--primary);
+            transition: background-position 1.1s ease, color 1s ease;
+        }
+
+        .home header .menu:hover {
+            color: var(--primary);
+            background-image: var(--svg-menu);
+            background-position: 100% 70%;
+            background-size: auto 100px;
+        }
+
+
+        .home section .title {
+            font-family: "Sedan", serif;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 2em;
+            text-align: center;
+            padding: 1.5em
+        }
+    </style>
+
+    <div class="home">
+        <header>
+            <div class="container-fluid">
+                <div class="row d-flex align-items-center justify-content-evenly py-5">
+                    <div class="xx col-md-6 text-align-center" style="text-align: center;">
+                        <div style="display: inline-block; text-align: left;">
+                            <h1>Whatever your choice is</h1>
+                            <h1>We can have it for you</h1>
+                            <p>the food cartel - ilocandia city</p>
+
+                            <div class="links">
+                                <a href="/" class="reserve">Reserve Now</a>
+                                <a href="#menu" class="menu">Menu</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="xx col-md-6 text-center">
+                        <img src="https://res.cloudinary.com/dbibml6gk/image/upload/v1711025489/TFC%20Assets/gcff9yof2do18rt1cwvz.png"
+                            class="img-fluid">
+
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <section id="resto-details" class="py-5">
+            <div class="container">
+                <div class="title text-success">Our Restaurant Details</div>
+                <div class="row gx-lg-5 g-5">
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-start">
+                            <div class="flex-shrink-0">
+                                <div class="px-3 border-end">
+                                    <i class="bi bi-calendar-range fs-4"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-4">
+                                <h5 class="fw-bold mb-1">Open</h5>
+                                <p class="text-muted mb-1">
+                                    Mon. - Sun. 11am - 10pm </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-start">
+                            <div class="flex-shrink-0">
+                                <div class="px-3 border-end">
+                                    <i class="bi bi-phone fs-4"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-4">
+                                <h5 class="fw-bold mb-1">Call us</h5>
+                                <p class="text-muted mb-1">
+                                    +63 966 450 6070 </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-start">
+                            <div class="flex-shrink-0">
+                                <div class="px-3 border-end">
+                                    <i class="bi bi-geo fs-4"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-4">
+                                <h5 class="fw-bold mb-1">Location</h5>
+                                <p class="text-muted mb-1">
+                                    Sea and Sky Hotel - The Bay Area <br>Brgy. Pagdaraoan, San Fernando City </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-start">
+                            <div class="flex-shrink-0">
+                                <div class="px-3 border-end">
+                                    <i class="bi bi-envelope-at fs-4"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-4">
+                                <h5 class="fw-bold mb-1">Email us</h5>
+                                <p class="text-muted mb-1">
+                                    thefoodcartel.sanfernandocity<br>@gmail.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </section>
+
+        <section id="menu-featured" class="py-5">
+            <div class="container">
+                <div class="title text-success">Our Menu</div>
+                <div class="items row d-flex flex-wrap gap-5">
+                    <div class="item col-md-3 border">
+                        <div class="image"><img class="img-fluid"
+                                src="https://res.cloudinary.com/dbibml6gk/image/upload/v1711701485/TFC%20Assets/jru3a6xyq08tazxswf2s.jpg">
+                        </div>
+                        <div class="item-details row">
+                            <div class="col ">
+                                <p class="name">Penne Pesto</p>
+                            </div>
+                            <div class="col">
+                                <p class="price">₱259</p>
+                            </div>
+                            <small class="desc">
+                                Item description goes here.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="item col-md-3">
+                        <div class="image"><img class="img-fluid"
+                                src="https://res.cloudinary.com/dbibml6gk/image/upload/v1711701485/TFC%20Assets/jru3a6xyq08tazxswf2s.jpg">
+                        </div>
+                        <div class="item-details row">
+                            <div class="col">
+                                <p class="name">Penne Pesto</p>
+                            </div>
+                            <div class="col">
+                                <p class="price">₱259</p>
+                            </div>
+                            <small class="desc">
+                                Item description goes here.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="item col-md-3">
+                        <div class="image"><img class="img-fluid"
+                                src="https://res.cloudinary.com/dbibml6gk/image/upload/v1711701485/TFC%20Assets/jru3a6xyq08tazxswf2s.jpg">
+                        </div>
+                        <div class="item-details row">
+                            <div class="col">
+                                <p class="name">Penne Pesto</p>
+                            </div>
+                            <div class="col">
+                                <p class="price">₱259</p>
+                            </div>
+                            <small class="desc">
+                                Item description goes here.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <%- include('../partials/home.footer.ejs'); %>
+
+    <%- include('../partials/_body.ejs'); %>

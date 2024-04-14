@@ -80,3 +80,5 @@ document.addEventListener("DOMContentLoaded", function() {
         return luminance > 0.5 ? '#141414' : '#d3d3d3';
     }
 });
+
+

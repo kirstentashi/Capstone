@@ -1,0 +1,63 @@
+<%- include('./partials/_head.ejs'); %>
+    <%- include('./partials/home.topbar.ejs'); %>
+
+
+        <div class="container">
+            <div class="header">
+                <h1>Menu</h1>
+            </div>
+            <div class="categories-container">
+                <!-- Pills navs -->
+                <ul class="nav nav-pills mb-3" id="ex1" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a data-mdb-pill-init class="nav-link active" id="ex1-tab-1" href="#ex1-pills-1" role="tab"
+                            aria-controls="ex1-pills-1" aria-selected="true">All</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a data-mdb-pill-init class="nav-link" id="ex1-tab-2" href="#ex1-pills-2" role="tab"
+                            aria-controls="ex1-pills-2" aria-selected="false">Category 1</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a data-mdb-pill-init class="nav-link" id="ex1-tab-3" href="#ex1-pills-3" role="tab"
+                            aria-controls="ex1-pills-3" aria-selected="false">Category 2</a>
+                    </li>
+                </ul>
+                <!-- Pills navs -->
+            </div>
+
+            <!-- Pills content -->
+
+
+
+            <div class="tab-content" id="ex1-content">
+                <div class="tab-pane fade show active" id="ex1-pills-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+                    <div class="container">
+                        <div class="items row d-flex flex-wrap gap-5">
+                            <div class="item col-md-3 border">
+                                <div class="image"><img class="img-fluid"
+                                        src="https://res.cloudinary.com/dbibml6gk/image/upload/v1711701485/TFC%20Assets/jru3a6xyq08tazxswf2s.jpg">
+                                </div>
+                                <div class="item-details row">
+                                    <div class="col ">
+                                        <p class="name">Penne Pesto</p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="price">₱259</p>
+                                    </div>
+                                    <small class="desc">
+                                        Item description goes here.
+                                    </small>
+                                </div>
+                            </div>
+        
+         
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Pills content -->
+
+            </div>
+
+
+            <%- include('./partials/_body.ejs'); %>
