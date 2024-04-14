@@ -1,0 +1,276 @@
+<%- include('../partials/_head.ejs'); %>
+
+  <div class="container-fluid">
+    <!-- Add Role Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addRoleModal">
+      Add New Role
+    </button>
+
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
+      <% roles.forEach(role=> { %>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <span class="role-name fs-5" data-color="<%= role.color %>">
+                <%= role.name %>
+              </span>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+              <p class="card-text">
+                <small>
+                  Created on <%= new Date(role.createdAt).toLocaleString() %> by Tashi <br>
+                    Updated on <%= new Date(role.updatedAt).toLocaleString() %> by Kirsten
+                </small>
+
+              </p>
+
+              <div class="d-flex justify-content-between align-items-center">
+
+                <a href="#" class="card-link">View Permissions</a>
+
+                <small class="text-body-secondary"> <button type="button"
+                    class="btn btn-info btn-floating globalTableBtn editRoleButton" data-bs-toggle="modal"
+                    data-bs-target="#editRoleModal_<%= role._id %>" data-mdb-ripple-init>
+                    <i class="bi bi-pencil-square fs-6"></i>
+                  </button>
+
+                  <button type="button" class="btn btn-danger btn-floating globalTableBtn editRoleButton"
+                    data-bs-toggle="modal" data-bs-target="#deleteRoleConfirmationModal" data-mdb-ripple-init>
+                    <i class="bi bi-trash fs-6"></i>
+                  </button></small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+    </div>
+
+
+    <!-- Add Role Modal -->
+    <div class="modal fade" id="addRoleModal" tabindex="-1" aria-labelledby="addRoleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="addRoleModalLabel">New Role</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="addRoleForm">
+              <div id="formAlert" style="display: none;"></div>
+              <div class="row g-2 mb-4">
+                <div class="col-sm-3 col-3">
+                  <div class="form-floating">
+                    <input type="color" class="form-control" id="roleColor" name="roleColor" placeholder=""
+                      value="#d3d3d3" data-mdb-tooltip-init data-mdb-placement="top" title="Choose role color">
+                    <label for="roleColor">Role Color</label>
+                  </div>
+                </div>
+                <div class="col-sm-9 col-9">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="roleName" name="roleName" placeholder="">
+                    <label for="roleName">Role Name</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PERMISSIONS -->
+              <ul class="list-group" id="rolePermissions">
+                <h5>Permissions</h5>
+                <p>Select specific permissions from the list below for this role. Roles with these permissions will have
+                  access to specific pages/features of the system.</p>
+                <!-- POS -->
+                <li class="list-group-item d-flex">
+                  <input type="checkbox" class="form-check-input me-1" id="POS" name="POS" value="POS">
+                  <label class="form-check-label" for="POS">
+                    <span><strong>POS System</strong>
+                      <small class="d-block">
+                        Roles with this permission have access to the Point-of-Sale page, which is utilized for
+                        processing
+                        transactions, managing orders, and handling payments.
+                      </small>
+                    </span>
+                  </label>
+                </li>
+                <!-- Customer Management -->
+                <li class="list-group-item d-flex">
+                  <input type="checkbox" class="form-check-input me-1" id="customerManagement" name="customerManagement"
+                    value="customerManagement">
+                  <label class="form-check-label" for="customerManagement">
+                    <span><strong>Customer Management</strong>
+                      <small class="d-block">
+                        Roles with this permission have access to the customer management interface, allowing them to
+                        create, edit, and delete customer accountsn as well as track customer preferences, capture data,
+                        and administer loyalty programs.
+                      </small>
+                    </span>
+                  </label>
+                </li>
+                <!-- Product Management -->
+                <li class="list-group-item d-flex">
+                  <input type="checkbox" class="form-check-input me-1" id="productManagement" name="productManagement"
+                    value="productManagement">
+                  <label class="form-check-label" for="productManagement">
+                    <span><strong>Product Management</strong>
+                      <small class="d-block">
+                        Roles with this permission have access to the product management interface, enabling them to
+                        add, edit, and delete menu items as well as manage inventory within the system.
+                      </small>
+                    </span>
+                  </label>
+                </li>
+              </ul>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="addRoleButtonInModal">Add Role</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Role Modal -->
+    <% roles.forEach(role=> { %>
+      <div class="modal fade" id="editRoleModal_<%= role._id %>" tabindex="-1" aria-labelledby="addRoleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="editRoleModalLabel">New Role</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="editRoleForm">
+                <div id="formAlert" style="display: none;"></div>
+                <div class="row g-2 mb-4">
+                  <div class="col-sm-3 col-3">
+                    <div class="form-floating">
+                      <input type="color" class="form-control" id="roleColor" name="roleColor" placeholder=""
+                        value="<%= role.color %>" data-mdb-tooltip-init data-mdb-placement="top"
+                        title="Choose role color">
+                      <label for="roleColor">Role Color</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-9 col-9">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="roleName" name="roleName" placeholder=""
+                        value="<%= role.name %>">
+                      <label for="roleName">Role Name</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- PERMISSIONS -->
+                <ul class="list-group" id="rolePermissions">
+                  <h5>Permissions</h5>
+                  <p>Select specific permissions from the list below for this role. Roles with these permissions will
+                    have
+                    access to specific pages/features of the system.</p>
+                  <!-- POS -->
+                  <li class="list-group-item d-flex">
+                    <input type="checkbox" class="form-check-input me-1" id="POS" name="POS" value="POS">
+                    <label class="form-check-label" for="POS">
+                      <span><strong>POS System</strong>
+                        <small class="d-block">
+                          Roles with this permission have access to the Point-of-Sale page, which is utilized for
+                          processing
+                          transactions, managing orders, and handling payments.
+                        </small>
+                      </span>
+                    </label>
+                  </li>
+                  <!-- Customer Management -->
+                  <li class="list-group-item d-flex">
+                    <input type="checkbox" class="form-check-input me-1" id="customerManagement"
+                      name="customerManagement" value="customerManagement">
+                    <label class="form-check-label" for="customerManagement">
+                      <span><strong>Customer Management</strong>
+                        <small class="d-block">
+                          Roles with this permission have access to the customer management interface, allowing them to
+                          create, edit, and delete customer accountsn as well as track customer preferences, capture
+                          data,
+                          and administer loyalty programs.
+                        </small>
+                      </span>
+                    </label>
+                  </li>
+                  <!-- Product Management -->
+                  <li class="list-group-item d-flex">
+                    <input type="checkbox" class="form-check-input me-1" id="productManagement" name="productManagement"
+                      value="productManagement">
+                    <label class="form-check-label" for="productManagement">
+                      <span><strong>Product Management</strong>
+                        <small class="d-block">
+                          Roles with this permission have access to the product management interface, enabling them to
+                          add, edit, and delete menu items as well as manage inventory within the system.
+                        </small>
+                      </span>
+                    </label>
+                  </li>
+                </ul>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="addRoleButtonInModal">Add Role</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+
+        <!-- 
+    <div class="table-responsive">
+      <table class="table globalTable">
+        <thead>
+          <tr>
+            <th>Role Name</th>
+            <th>Created At</th>
+            <th>Created By</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% roles.forEach(role=> { %>
+            <tr>
+              <td>
+                <span class="roleName px-2 rounded-pill" data-color="<%= role.color %>">
+                  <%= role.name %>
+                </span>
+              </td>
+              <td>
+                <%= new Date(role.createdAt).toLocaleString() %>
+              </td>
+              <td>
+                <%= role.createdBy %>
+              </td>
+              <td>
+                <button type="button" class="btn btn-info btn-floating globalTableBtn editRoleButton"
+                  data-bs-toggle="modal" data-bs-target="#editRoleModal" data-mdb-ripple-init>
+                  <i class="bi bi-pencil-square fs-6"></i>
+                </button>
+
+                <button type="button" class="btn btn-danger btn-floating globalTableBtn editRoleButton"
+                  data-bs-toggle="modal" data-bs-target="#deleteRoleConfirmationModal" data-mdb-ripple-init>
+                  <i class="bi bi-trash fs-6"></i>
+                </button>
+              </td>
+            </tr>
+            <% }) %>
+        </tbody>
+      </table>
+    </div> -->
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <%- include('../partials/_body.ejs'); %>

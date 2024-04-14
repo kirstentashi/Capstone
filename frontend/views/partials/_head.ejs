@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>The Food Cartel San Fernando</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet" />
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Include jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+  <!-- Include DataTables JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+  <script
+    src="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/af-2.7.0/b-3.0.1/b-colvis-3.0.1/b-html5-3.0.1/b-print-3.0.1/cr-2.0.0/date-1.5.2/fc-5.0.0/fh-4.0.1/kt-2.12.0/r-3.0.1/rg-1.5.0/rr-1.5.0/sc-2.4.1/sb-1.7.0/sp-2.3.0/sl-2.0.0/sr-1.4.0/datatables.min.js"></script>
+
+  <!-- CSS IMPORTS -->
+  <link rel="stylesheet" href="/css/_global.css">
+  <link rel="stylesheet" href="/css/custom.bootstrap.css">
+  <link rel="stylesheet" href="/css/toast.css">
+  <!-- <link rel="stylesheet" href="/css/_default.css">
+    <link rel="stylesheet" href="/css/itemlist.css">
+    <link rel="stylesheet" href="/css/datatable.css">
+    <link rel="stylesheet" href="/css/roles.css"> -->
+
+
+</head>
+
+<body>
+  <!-- Load Facebook SDK for JavaScript -->
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '1413951149277320',
+        xfbml: true,
+        version: 'v3.2'
+      });
+
+      // Get Embedded Video Player API Instance
+      var my_video_player;
+      FB.Event.subscribe('xfbml.ready', function (msg) {
+        if (msg.type === 'video') {
+          my_video_player = msg.instance;
+        }
+      });
+    };
+  </script>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0&appId=1413951149277320"
+    nonce="Lma969Qd"></script>
+  <!-- Axios CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
