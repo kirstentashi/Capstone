@@ -1,0 +1,162 @@
+<%- include('./partials/_head.ejs'); %>
+
+    <section id="login" class="text-center text-lg-start vh-100 d-flex align-items-center">
+        <div class="container">
+            <div class="row center-horizontal d-flex justify-content-between align-items-between">
+                <div class="col-auto d-none d-lg-block">
+                    <img src="https://res.cloudinary.com/dbibml6gk/image/upload/v1709757960/TFC%20Assets/eoxzmtukrufvp2x7gzet.jpg"
+                        width="500" class="img-fluid">
+                </div>
+                <div class="col-md-10 col-lg-5 d-flex justify-content-center flex-column">
+                    <div class="header my-4">
+                        <h1 class="header-title">Login</h1>
+                        <div class="row">
+                            <div class="col">
+                                <p>Welcome to The Food Cartel San Fernando!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="alertMessage" class="alert alert-danger d-none" role="alert">
+                        <!-- This will be replaced by the server-side message -->
+                    </div>
+
+                    <form action="/login" method="post" id="loginForm">
+                        <div class="form-floating mb-3">
+                            <input type="email" name="email" id="login_email" class="form-control rounded"
+                                placeholder="name@example.com" required
+                                pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="name@example.com">
+                            <label for="email">Email address</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" name="password" id="loginPassword" class="form-control"
+                                placeholder="Password">
+                            <label for="password">Password</label>
+                            <div class="d-flex justify-content-between align-items-center mt-2 mb-5">
+                                <div class="form-check">
+                                    <input class="form-check-input me-2" type="checkbox" name="showPassword"
+                                        id="showPassword" onclick="togglePasswordVisibility()">
+                                    <label class="form-check-label" for="showPassword">
+                                        Show password
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" data-mdb-ripple-init data-mdb-ripple-centered="true"
+                                class="btn btn-success shadow-0 btn-rounded" id="loginButton">Login</button>
+                        </div>
+
+
+                        <div class="row reglink text-center mt-5">
+                            <div class="col border-end">
+                                <a href="/recover">Forgot password?</a>
+                            </div>
+                            <div class="col">
+                                <a href="#register">Create an account</a>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="text-center text-lg-start vh-100 d-flex align-items-center">
+        <div class="container">
+            <div class="row center-horizontal d-flex justify-content-between align-items-between">
+                <div class="col-auto d-none d-lg-block">
+                    <img src="https://res.cloudinary.com/dbibml6gk/image/upload/v1709757960/TFC%20Assets/eoxzmtukrufvp2x7gzet.jpg"
+                        width="500" class="img-fluid">
+                </div>
+                <div class="col-md-10 col-lg-5 d-flex justify-content-center flex-column">
+                    <div class="header my-4">
+                        <h1 class="header-title">Sign up</h1>
+                        <div class="row">
+                            <div class="col">
+                                <p>Create your account</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="alertMessage" class="alert alert-danger d-none" role="alert">
+                        <!-- This will be replaced by the server-side message -->
+                    </div>
+
+                    <form action="/auth" method="post" id="signupForm" class="needs-validation">
+                        <div class="row g-3 mb-3">
+                            <div class="col">
+                                <div class="form-floating">
+                                    <input type="text" name="firstName" id="firstName" class="form-control"
+                                        placeholder="First Name" required>
+                                    <label for="firstName">First Name</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating">
+                                    <input type="text" name="lastName" id="lastName" class="form-control"
+                                        placeholder="Last Name" required>
+                                    <label for="lastName">Last Name</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="email" name="email" id="email" class="form-control"
+                                placeholder="name@example.com" required
+                                pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="name@example.com">
+                            <label for="email">Email address</label>
+                            <div id="emailError" class="invalid-feedback">Email already exists.
+                            </div>
+                        </div>
+
+                        <div class="form-floating">
+                            <input type="password" name="password" id="signupPassword" class="form-control mb-1"
+                                placeholder="Password" required minlength="8" maxlength="50"
+                                title="Password must be at least 8 characters long.">
+                            <label for="password">Password</label>
+
+                            <div class="form-check">
+                                <input class="form-check-input me-2" type="checkbox" name="showPassword"
+                                    id="showPassword" onclick="togglePasswordVisibility()">
+                                <label class="form-check-label" for="showPassword">
+                                    Show password
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-check mb-3 mt-4">
+                            <input class="form-check-input me-2" type="checkbox" name="tos" id="tos" autocompleted=""
+                                onclick="enableSignup()" checked
+                                title="You must agree to the Terms of Service in order to create an account.">
+                            <label class="form-check-label" for="tos">
+                                I agree all statements in <a href="#!">Terms of service</a>
+                            </label>
+                            <div class="invalid-feedback me-3 mt-1" id="tosFeedback" style="display: none;">
+                                You must agree to the Terms of Service in order to create an account.
+                            </div>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" data-mdb-ripple-init data-mdb-ripple-centered="true"
+                                class="btn btn-success shadow-0 btn-rounded" id="loginButton">Sign up</button>
+                        </div>
+
+
+                        <div class="row reglink text-center mt-5">
+
+                            <div class="col">
+                                <a href="#login">Login</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <%- include('./partials/_body.ejs'); %>

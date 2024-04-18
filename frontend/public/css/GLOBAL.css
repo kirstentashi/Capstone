@@ -129,7 +129,8 @@
   }
   
   html, body {
-    font-family: "Poppins", sans-serif; 
+    font-family: "Poppins", sans-serif;
+    --primary: #046A38;
   }
 
   /* Menu */

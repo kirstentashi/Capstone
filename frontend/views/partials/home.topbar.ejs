@@ -1,30 +1,68 @@
-<!-- Image and text -->
-<nav class="navbar navbar-expand-lg shadow-0" style="background-color: #046A38;">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <img
-        src="https://res.cloudinary.com/dbibml6gk/image/upload/v1707742350/TFC%20Assets/thefoodcartelsf-logo.jpg"
-        class="me-2"
-        height="45"
-        alt="MDB Logo"
-        loading="lazy"
-      />
-    </a>
+<header class="sticky-top" style="background-color: var(--primary);">
+  <div class="navbar navbar-expand shadow-0 container">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"> <img
+          src="https://res.cloudinary.com/dbibml6gk/image/upload/v1707742350/TFC%20Assets/thefoodcartelsf-logo.jpg"
+          alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+      </a>
 
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link  text-light active" aria-current="page" href="#">Home</a>
+      <ul id="navItems" class="navbar-nav nav me-auto">
+        <li class="nav-item d-sm-block d-none">
+          <a class="nav-link text-light active" aria-current="home" href="#home">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link  text-light" href="#">Details</a>
+        <li class="nav-item d-sm-block d-none">
+          <a class="nav-link text-light" href="#menu">Menu</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link  text-light" href="#">Menu</a>
+        <li class="nav-item d-sm-block d-none">
+          <a class="nav-link text-light" href="#faq">FAQ</a>
+        </li>
+        <li class="nav-item d-sm-block d-none">
+          <a class="nav-link text-light" href="#location">Location</a>
+        </li>
+        <li class="nav-item-expand-lg dropdown d-sm-none">
+          <a class="nav-link text-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Jump to
+          </a>
+          <ul id="dropdownMenu" class="dropdown-menu">
+            <!-- Dropdown items will be populated here -->
+          </ul>
         </li>
       </ul>
 
+
+      <button class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        Sign in
+      </button>
+      
+     
+      </div>
+
     </div>
   </div>
+</header>
+
+<div class="spacer pb-5" style="background-color: var(--primary);">
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-</nav>
+  <div class="offcanvas-body">
+    <div>
+      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+    </div>
+    <div class="dropdown mt-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

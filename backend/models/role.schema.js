@@ -16,7 +16,6 @@ const roleSchema = new mongoose.Schema({
           }],
           required: true
     },
-    
     createdBy: {
         type: String,
         default: null

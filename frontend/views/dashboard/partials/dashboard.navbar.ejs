@@ -1,444 +1,305 @@
 <style>
-    .notification {
-      min-width: 400px;
-    }
-  
-    /* .breadcrumb-chevron .breadcrumb-item::before {
-          gap: inherit;
-          float: none;
-          width: 1rem;
-          height: 1rem;
-  
-      }
-  
-      .breadcrumb-item+.breadcrumb-item::before {
-          float: left;
-          padding-right: var(--bs-breadcrumb-item-padding-x);
-          color: var(--bs-breadcrumb-divider-color);
-          content: var(--bs-breadcrumb-divider, "/");
-      }
-  
-      .breadcrumb-chevron .breadcrumb-item {
-          display: flex;
-          gap: inherit;
-          align-items: center;
-          padding-left: 0;
-          line-height: 1;
-      }
-  
-      .breadcrumb-chevron {
-          --bs-breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236c757d'%3E%3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
-          gap: 2rem;
-      } */
-  </style>
-  
-  <header class="navbar shadow-0" style="background-color: var(--primary);">
-    <nav class="container-fluid flex-wrap flex-md-nowrap">
-      <div>
-        <ul class="nav pt-2 py-md-0">
-          <li class="nav-item">
-            <a class="navbar-brand p-0 me-2" href="/" aria-label="Bootstrap">
-              <img src="https://res.cloudinary.com/dbibml6gk/image/upload/v1707742350/TFC%20Assets/thefoodcartelsf-logo.jpg" width="40" height="40">
+  .notification {
+    min-width: 400px;
+  }
+</style>
+
+<header class="navbar shadow-0" style="background-color: var(--primary);">
+  <nav class="container-fluid flex-wrap flex-md-nowrap">
+    <div>
+      <ul class="nav pt-2 py-md-0">
+        <li class="nav-item">
+          <a class="navbar-brand p-0 me-2" href="/" aria-label="Bootstrap">
+            <img
+              src="https://res.cloudinary.com/dbibml6gk/image/upload/v1707742350/TFC%20Assets/thefoodcartelsf-logo.jpg"
+              width="40" height="40">
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <ul class="nav pt-2 py-md-0 align-items-center">
+        <li class="nav-item px-3">
+          <div class="dropdown">
+            <a class="dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
+              data-mdb-toggle="dropdown" aria-expanded="false" data-mdb-dropdown-init data-mdb-dropdown-animation="off">
+              <i class="bi bi-bell-fill text-light"></i>
+              <span class="badge rounded-pill badge-notification bg-danger">1</span>
             </a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <ul class="nav pt-2 py-md-0 align-items-center">
-          <li class="nav-item px-3">
-            <div class="dropdown">
-              <a class="dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false" data-mdb-dropdown-init data-mdb-dropdown-animation="off">
-                <i class="bi bi-bell-fill text-light"></i>
-                <span class="badge rounded-pill badge-notification bg-danger">1</span>
-              </a>
-              <ul class="dropdown-menu notification" aria-labelledby="navbarDropdownMenuLink">
-                <li>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                      <a href="/">
-                        <strong>New Order</strong>
-                        <p>A new order has been made. Order #32423</p>
-                      </a>
-                    </li>
-                    <li class="list-group-item">
-                      <a href="/">
-                        <strong>New Order</strong>
-                        <p>A new order has been made. Order #32423</p>
-                      </a>
-                    </li>
-  
-                    <li class="list-group-item">
-                      <a href="/">
-                        <strong>New Order</strong>
-                        <p>A new order has been made. Order #32423</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </li>
-  
-          <li class="nav-item dropdown position-static">
-            <a data-mdb-auto-close="outside" class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false" data-mdb-dropdown-init data-mdb-dropdown-animation="off">
-              <i class="bi bi-box-fill"></i>
-            </a>
-            <!-- Dropdown menu -->
-            <div data-mdb-auto-close="outside" class="dropdown-menu w-100 mt-2" aria-labelledby="navbarDropdown" style="
-                                      border-top-left-radius: 0;
-                                      border-top-right-radius: 0;
-                                    ">
-              <div class="container">
-                <div class="row my-4">
-                  <div class="col-md-6 col-xl-3 mb-3 mb-xl-0">
-                    <div class="pt-2">
-                      <p class="text-uppercase font-weight-bold">
-                        Explicabo voluptas
-                      </p>
-                      <div class="bg-image hover-overlay shadow-1-strong rounded ripple mb-4" data-mdb-ripple-color="light">
-                        <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp" class="img-fluid" />
-                        <a href="#!">
-                          <div class="mask" style="
-                                                    background-color: rgba(
-                                                      251,
-                                                      251,
-                                                      251,
-                                                      0.15
-                                                    );
-                                                  "></div>
-                        </a>
-                      </div>
-                      <div class="d-flex justify-content-between">
-                        <a href="" class="text-info"><i class="fas fa-plane pe-1"></i>Travels</a>
-                        <p><u>15.07.2020</u></p>
-                      </div>
-                      <a href="">
-                        <h5>This is title of the news</h5>
-                        <p>
-                          Lorem ipsum dolor sit amet
-                          consectetur adipisicing elit.
-                          Odit, iste aliquid. Sed id nihil
-                          magni, sint vero provident esse
-                          numquam perferendis ducimus dicta
-                          adipisci iusto nam temporibus modi
-                          animi laboriosam?
-                        </p>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-xl-3 mb-3 mb-xl-0">
-                    <div class="pt-2">
-                      <p class="text-uppercase font-weight-bold">
-                        Explicabo voluptas
-                      </p>
-                      <a href="">
-                        <div class="row mb-4 border-bottom pb-2">
-                          <div class="col-3">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="img-fluid shadow-1-strong rounded" alt="Hollywood Sign on The Hill" />
-                          </div>
-                          <div class="col-9">
-                            <p class="mb-2">
-                              <strong>Lorem ipsum dolor sit
-                                amet</strong>
-                            </p>
-                            <p><u>15.07.2020</u></p>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="">
-                        <div class="row mb-4 border-bottom pb-2">
-                          <div class="col-3">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="img-fluid shadow-1-strong rounded" alt="Palm Springs" />
-                          </div>
-                          <div class="col-9">
-                            <p class="mb-2">
-                              <strong>Lorem ipsum dolor sit
-                                amet</strong>
-                            </p>
-                            <p><u>15.07.2020</u></p>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="">
-                        <div class="row mb-4 border-bottom pb-2">
-                          <div class="col-3">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" class="img-fluid shadow-1-strong rounded" alt="Los Angeles Skyscrapers" />
-                          </div>
-                          <div class="col-9">
-                            <p class="mb-2">
-                              <strong>Lorem ipsum dolor sit
-                                amet</strong>
-                            </p>
-                            <p><u>15.07.2020</u></p>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="">
-                        <div class="row mb-4 border-bottom pb-2">
-                          <div class="col-3">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="img-fluid shadow-1-strong rounded" alt="Skyscrapers" />
-                          </div>
-                          <div class="col-9">
-                            <p class="mb-2">
-                              <strong>Lorem ipsum dolor sit
-                                amet</strong>
-                            </p>
-                            <p><u>15.07.2020</u></p>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-xl-3 mb-3 mb-md-0">
-                    <div class="list-group list-group-flush">
-                      <p class="mb-0 list-group-item text-uppercase font-weight-bold">
-                        Iste quaerato
-                      </p>
-  
-                      <a class="btn btn-primary mb-3 list-group-item list-group-item-action" data-mdb-collapse-init data-mdb-ripple-init href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Cras justo odio</a>
-                      <!-- Collapsed content -->
-                      <div class="collapse" id="collapseExample">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                        sapiente ea proident.
-                      </div>
-                      <a href="" class="list-group-item list-group-item-action"><i class="fas fa-caret-right pe-2"></i>Est iure</a>
-                      <a href="" class="list-group-item list-group-item-action"><i class="fas fa-caret-right pe-2"></i>Praesentium</a>
-                      <a href="" class="list-group-item list-group-item-action"><i class="fas fa-caret-right pe-2"></i>Laboriosam</a>
-                      <a href="" class="list-group-item list-group-item-action"><i class="fas fa-caret-right pe-2"></i>Dolor sit</a>
-                      <a href="" class="list-group-item list-group-item-action"><i class="fas fa-caret-right pe-2"></i>Amet consectetur</a>
-                      <a href="" class="list-group-item list-group-item-action"><i class="fas fa-caret-right pe-2"></i>Cras justo odio</a>
-                      <a href="" class="list-group-item list-group-item-action"><i class="fas fa-caret-right pe-2"></i>Adipiscing elit</a>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-xl-3">
-                    <div class="list-group list-group-flush">
-                      <p class="mb-0 list-group-item text-uppercase font-weight-bold">
-                        Cras justo odio
-                      </p>
-                      <a href="" class="list-group-item list-group-item-action"><i class="fas fa-caret-right pe-2"></i>Saepe</a>
-                      <a href="" class="list-group-item list-group-item-action"><i class="fas fa-caret-right pe-2"></i>Vel alias</a>
-                      <a href="" class="list-group-item list-group-item-action"><i class="fas fa-caret-right pe-2"></i>Sunt doloribus</a>
-                      <a href="" class="list-group-item list-group-item-action"><i class="fas fa-caret-right pe-2"></i>Cum dolores</a>
-                      <a href="" class="list-group-item list-group-item-action"><i class="fas fa-caret-right pe-2"></i>Perspiciatis quo</a>
-                      <a href="" class="list-group-item list-group-item-action"><i class="fas fa-caret-right pe-2"></i>Cras justo odio</a>
-                      <a href="" class="list-group-item list-group-item-action"><i class="fas fa-caret-right pe-2"></i>Laudantium maiores</a>
-                      <a href="" class="list-group-item list-group-item-action"><i class="fas fa-caret-right pe-2"></i>Provident dolor</a>
-                    </div>
-                  </div>
+            <ul class="dropdown-menu notification" aria-labelledby="navbarDropdownMenuLink">
+              <li>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <a href="/">
+                      <strong>New Order</strong>
+                      <p>A new order has been made. Order #32423</p>
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="/">
+                      <strong>New Order</strong>
+                      <p>A new order has been made. Order #32423</p>
+                    </a>
+                  </li>
+
+                  <li class="list-group-item">
+                    <a href="/">
+                      <strong>New Order</strong>
+                      <p>A new order has been made. Order #32423</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown position-static">
+          <a data-mdb-auto-close="outside" class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown"
+            role="button" data-mdb-toggle="dropdown" aria-expanded="false" data-mdb-dropdown-init
+            data-mdb-dropdown-animation="off">
+            <i class="bi bi-box-fill"></i>
+          </a>
+          <!-- Dropdown menu -->
+          <div data-mdb-auto-close="outside" class="dropdown-menu mt-2" aria-labelledby="navbarDropdown" style="width: 25em; border-top-left-radius: 0; border-top-right-radius: 0;">
+            <div class="row d-flex align-items-center justify-content-center text-center">
+              <div class="col p-3">
+                <i class="bi bi-megaphone-fill p-2 bg-primary"></i>
+              </div>
+              <div class="col">
+                <div class="form-floating">
+                  <i class="bi bi-gear-fill fs-5" data-mdb-tooltip-init data-mdb-placement="bottom" title="Settings"></i>
+
                 </div>
               </div>
+              <div class="col">
+                <i class="bi bi-megaphone-fill"></i>
+              </div>
+              
             </div>
-          </li>
-  
-  
-          <li class="nav-item">
-            <div class="vr h-100 mx-2"></div>
-          </li>
-          <li class="nav-item">
-            <hr class="my-2-50">
-          </li>
-          <li class="nav-item">
-          
-          </li>
-        </ul>
+          </div>
+        </li>
+
+
+        <li class="nav-item">
+          <div class="vr h-100 mx-2"></div>
+        </li>
+        <li class="nav-item">
+          <hr class="my-2-50">
+        </li>
+        <li class="nav-item">
+
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<nav class="second-topbar navbar navbar-expand-lg shadow-0 border-bottom border-top"
+  aria-label="Offcanvas navbar large">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler btn-link" data-mdb-ripple-init data-mdb-ripple-color="light"
+      data-mdb-dropdown-animation="off" type="button" data-mdb-toggle="offcanvas" data-mdb-target="#offcanvasNavbar2"
+      aria-controls="offcanvasNavbar2" aria-label="Toggle navigation" data-mdb-offcanvas-init>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbar2Label">The Food Cartel</h5>
+        <button type="button" class="btn-close btn-close-white" data-mdb-dismiss="offcanvas"
+          aria-label="Close"></button>
       </div>
-    </nav>
-  </header>
-  
-  <nav class="second-topbar navbar navbar-expand-lg shadow-0 border-bottom border-top" aria-label="Offcanvas navbar large">
-    <div class="container-fluid">
-  
-      <button class="navbar-toggler btn-link" data-mdb-ripple-init data-mdb-ripple-color="light" data-mdb-dropdown-animation="off" type="button" data-mdb-toggle="offcanvas" data-mdb-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2" aria-label="Toggle navigation" data-mdb-offcanvas-init>
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbar2Label">The Food Cartel</h5>
-          <button type="button" class="btn-close btn-close-white" data-mdb-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-md-center flex-grow-1 gap-2">
-            <li class="nav-item">
-              <a href="/dashboard" class="nav-link">
-                <i class="bi bi-grid-fill me-1"></i>Dashboard
-              </a>
-            </li>
-  
-            <style>
-              .dropdown-menu li {
-                position: relative;
-              }
-  
-              .dropdown-menu .dropdown-submenu {
-                display: none;
-                position: absolute;
-                left: 100%;
-                top: -7px;
-              }
-  
-              .dropdown-menu .dropdown-submenu-left {
-                right: 100%;
-                left: auto;
-              }
-  
-              .dropdown-menu>li:hover>.dropdown-submenu {
-                display: block;
-              }
-            </style>
-  
-            <li class="nav-item">
-              <a href="#" role="button" data-mdb-toggle="dropdown" class="nav-link dropdown-toggle" data-mdb-dropdown-init aria-expanded="false" data-mdb-dropdown-animation="off" data-mdb-auto-close="outside">
-                <i class="bi bi-grid-3x3-gap-fill me-1"></i>Restaurant
-              </a>
-              <ul class="dropdown-menu">
-                <li class="nav-item dropend">
-                  <a href="#" role="button" data-mdb-toggle="dropdown" class="dropdown-item dropdown-toggle" data-mdb-dropdown-init aria-expanded="false" data-mdb-dropdown-animation="off" data-mdb-auto-close="outside">
-                    <i class="bi bi-people-fill"></i> Users
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Employees</a></li>
-                    <li><a class="dropdown-item" href="#">Customers</a></li>
-                    <li class="nav-item dropend">
-                      <a href="#" role="button" data-mdb-toggle="dropdown" class="dropdown-item dropdown-toggle" data-mdb-dropdown-init aria-expanded="false" data-mdb-dropdown-animation="off" data-mdb-auto-close="outside">
-                        <i class="bi bi-people-fill"></i> Users
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Employees</a></li>
-                        <li><a class="dropdown-item" href="#">Customers</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><a class="dropdown-item" href="/dashboard/positions"><i class="bi bi-shield-lock-fill"></i> Positions</a>
-                </li>
-              </ul>
-            </li>
-  
-            <li class="nav-item">
-              <div class="dropdown">
-                <a href="#" role="button" data-mdb-toggle="dropdown" class="nav-link dropdown-toggle" id="dropdownMenuButton" data-mdb-dropdown-init aria-expanded="false" data-mdb-dropdown-animation="off" data-mdb-auto-close="outside">
-                  <i class="bi bi-grid-3x3-gap-fill me-1"></i>Restaurant
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-md-center flex-grow-1 gap-2">
+          <li class="nav-item">
+            <a href="/dashboard" class="nav-link">
+              <i class="bi bi-grid-fill me-1"></i>Dashboard
+            </a>
+          </li>
+
+          <style>
+            .dropdown-menu li {
+              position: relative;
+            }
+
+            .dropdown-menu .dropdown-submenu {
+              display: none;
+              position: absolute;
+              left: 100%;
+              top: -7px;
+            }
+
+            .dropdown-menu .dropdown-submenu-left {
+              right: 100%;
+              left: auto;
+            }
+
+            .dropdown-menu>li:hover>.dropdown-submenu {
+              display: block;
+            }
+          </style>
+
+          <li class="nav-item">
+            <a href="#" role="button" data-mdb-toggle="dropdown" class="nav-link dropdown-toggle" data-mdb-dropdown-init
+              aria-expanded="false" data-mdb-dropdown-animation="off" data-mdb-auto-close="outside">
+              <i class="bi bi-grid-3x3-gap-fill me-1"></i>Restaurant
+            </a>
+            <ul class="dropdown-menu">
+              <li class="nav-item dropend">
+                <a href="#" role="button" data-mdb-toggle="dropdown" class="dropdown-item dropdown-toggle"
+                  data-mdb-dropdown-init aria-expanded="false" data-mdb-dropdown-animation="off"
+                  data-mdb-auto-close="outside">
+                  <i class="bi bi-people-fill"></i> Users
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <li><a class="dropdown-item" href="/dashboard/restaurant/positions">Positions</a></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Another action</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Submenu &raquo;
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Employees</a></li>
+                  <li><a class="dropdown-item" href="#">Customers</a></li>
+                  <li class="nav-item dropend">
+                    <a href="#" role="button" data-mdb-toggle="dropdown" class="dropdown-item dropdown-toggle"
+                      data-mdb-dropdown-init aria-expanded="false" data-mdb-dropdown-animation="off"
+                      data-mdb-auto-close="outside">
+                      <i class="bi bi-people-fill"></i> Users
                     </a>
-                    <ul class="dropdown-menu dropdown-submenu">
-                      <li>
-                        <a class="dropdown-item" href="#">Submenu item 1</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#">Submenu item 2</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#">Submenu item 3 &raquo; </a>
-                        <ul class="dropdown-menu dropdown-submenu">
-                          <li>
-                            <a class="dropdown-item" href="#">Multi level 1</a>
-                          </li>
-                          <li>
-                            <a class="dropdown-item" href="#">Multi level 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#">Submenu item 4</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#">Submenu item 5</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Users &raquo;
-                    </a>
-                    <ul class="dropdown-menu dropdown-submenu">
-                      <li>
-                        <a class="dropdown-item" href="/dashboard/users/employees">Employees</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="/dashboard/users/customers">Customers</a>
-                      </li>
-  
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Employees</a></li>
+                      <li><a class="dropdown-item" href="#">Customers</a></li>
                     </ul>
                   </li>
                 </ul>
-              </div>
-            </li>
-          </ul>
-        </div>
+              </li>
+              <li><a class="dropdown-item" href="/dashboard/positions"><i class="bi bi-shield-lock-fill"></i>
+                  Positions</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <div class="dropdown">
+              <a href="#" role="button" data-mdb-toggle="dropdown" class="nav-link dropdown-toggle"
+                id="dropdownMenuButton" data-mdb-dropdown-init aria-expanded="false" data-mdb-dropdown-animation="off"
+                data-mdb-auto-close="outside">
+                <i class="bi bi-grid-3x3-gap-fill me-1"></i>Restaurant
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="/dashboard/restaurant/positions">Positions</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Another action</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    Submenu &raquo;
+                  </a>
+                  <ul class="dropdown-menu dropdown-submenu">
+                    <li>
+                      <a class="dropdown-item" href="#">Submenu item 1</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Submenu item 2</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Submenu item 3 &raquo; </a>
+                      <ul class="dropdown-menu dropdown-submenu">
+                        <li>
+                          <a class="dropdown-item" href="#">Multi level 1</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">Multi level 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Submenu item 4</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Submenu item 5</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    Users &raquo;
+                  </a>
+                  <ul class="dropdown-menu dropdown-submenu">
+                    <li>
+                      <a class="dropdown-item" href="/dashboard/users/employees">Employees</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="/dashboard/users/customers">Customers</a>
+                    </li>
+
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
-  </nav>
-  
-  <!-- <div class="container my-3 d-flex justify-content-between">
+  </div>
+</nav>
+
+<!-- <div class="container my-3 d-flex justify-content-between">
       <nav aria-label="breadcrumb">
           <ol id="breadcrumb" class="breadcrumb breadcrumb-chevron p-3 rounded-3">
           </ol>
       </nav>
   </div> -->
-  
-  <div class="container-fluid mt-3" style="font-size: 0.9em;">
-  
-      <div class="col-md-8">
-          <ol class="breadcrumb page-breadcrumb">
-          </ol>
-        </div>
+
+<div class="container-fluid mt-3" style="font-size: 0.9em;">
+
+  <div class="col-md-8">
+    <ol class="breadcrumb page-breadcrumb">
+    </ol>
   </div>
-  
-  <script>
-    // Function to capitalize the first letter of a string
-    function capitalizeFirstLetter(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-  
-    // Function to update breadcrumbs
-    function updateBreadcrumbs() {
-      var path = window.location.pathname;
-      var parts = path.split('/').filter(function(part) {
-        return part !== '';
-      });
-  
-      var breadcrumb = document.querySelector('.breadcrumb.page-breadcrumb');
-      breadcrumb.innerHTML = '';
-  
-      // Base path
-      breadcrumb.innerHTML += '<li class="breadcrumb-item"><a class="link-body-emphasis fw-semibold text-decoration-none" href="/dashboard"><i class="bi bi-house-door-fill"></i> Dashboard</a></li>';
-      var basePath = '/dashboard'; // Assuming the base path is always '/dashboard'
-      var cumulativePath = basePath; // Start with base path
-  
-      // Other parts of the path
-      parts.slice(1).forEach(function(part, index) {
-        var isActive = (index === parts.length - 2); // Check if it's the last part before filename
-        var capitalizedPart = capitalizeFirstLetter(part);
-        cumulativePath += '/' + part; // Update cumulative path
-  
-        if (isActive) {
-          breadcrumb.innerHTML += '<li class="breadcrumb-item active" aria-current="page">' + capitalizedPart + '</li>';
-        } else {
-          breadcrumb.innerHTML += '<li class="breadcrumb-item"><a class="link-body-emphasis fw-semibold text-decoration-none" href="' + cumulativePath + '">' + capitalizedPart + '</a></li>';
-        }
-      });
-    }
-  
-    function capitalizeFirstLetter(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-  
-    }
-  
+</div>
+
+<script>
+  // Function to capitalize the first letter of a string
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  // Function to update breadcrumbs
+  function updateBreadcrumbs() {
+    var path = window.location.pathname;
+    var parts = path.split('/').filter(function (part) {
+      return part !== '';
+    });
+
+    var breadcrumb = document.querySelector('.breadcrumb.page-breadcrumb');
+    breadcrumb.innerHTML = '';
+
+    // Base path
+    breadcrumb.innerHTML += '<li class="breadcrumb-item"><a class="link-body-emphasis fw-semibold text-decoration-none" href="/dashboard"><i class="bi bi-house-door-fill"></i> Dashboard</a></li>';
+    var basePath = '/dashboard'; // Assuming the base path is always '/dashboard'
+    var cumulativePath = basePath; // Start with base path
+
+    // Other parts of the path
+    parts.slice(1).forEach(function (part, index) {
+      var isActive = (index === parts.length - 2); // Check if it's the last part before filename
+      var capitalizedPart = capitalizeFirstLetter(part);
+      cumulativePath += '/' + part; // Update cumulative path
+
+      if (isActive) {
+        breadcrumb.innerHTML += '<li class="breadcrumb-item active" aria-current="page">' + capitalizedPart + '</li>';
+      } else {
+        breadcrumb.innerHTML += '<li class="breadcrumb-item"><a class="link-body-emphasis fw-semibold text-decoration-none" href="' + cumulativePath + '">' + capitalizedPart + '</a></li>';
+      }
+    });
+  }
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+
+  }
+
   //   // Function to update real-time date and greeting
   //   function updateRealTimeDate() {
   //     var currentDate = new Date();
   //     var hours = currentDate.getHours();
-  
+
   //     var greeting;
   //     if (hours < 12) {
   //       greeting = 'Good morning!';
@@ -447,19 +308,19 @@
   //     } else {
   //       greeting = 'Good evening!';
   //     }
-  
+
   //     var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   //     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   //     var dateString = days[currentDate.getDay()] + ', ' + months[currentDate.getMonth()] + ' ' + currentDate.getDate() + ', ' + currentDate.getFullYear();
   //     document.querySelector('.js-get-date').textContent = dateString;
   //     document.querySelector('.js-greeting').textContent = greeting;
   //   }
-  
-    // Execute breadcrumb and real-time date updates after the page has loaded
-    window.addEventListener('load', function() {
-      updateBreadcrumbs();
-      // updateRealTimeDate();
-      // Update the real-time date and greeting every second
-      // setInterval(updateRealTimeDate, 1000);
-    });
-  </script>
+
+  // Execute breadcrumb and real-time date updates after the page has loaded
+  window.addEventListener('load', function () {
+    updateBreadcrumbs();
+    // updateRealTimeDate();
+    // Update the real-time date and greeting every second
+    // setInterval(updateRealTimeDate, 1000);
+  });
+</script>

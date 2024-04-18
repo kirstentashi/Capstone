@@ -1,4 +1,6 @@
 const Role = require('../models/role.schema')
+const Settings = require('../models/settings.schema')
+const Employee = require('../models/employee.schema')
 
 exports.home = (req, res) => {
     res.render('home');
@@ -18,6 +20,21 @@ exports.menu = (req, res) => {
 
 exports.dashboard = (req, res) => {
     res.render('dashboard');
+};
+
+exports.auth = (req, res) => {
+    res.render('auth');
+};
+
+exports.settings = async (req, res) => {
+    const settings = await Settings.find();
+    res.render('settings', { settings });
+};
+
+exports.employees = async (req, res) => {
+    const employees = await Employee.find();
+    const roles = await Role.find();
+    res.render('employees', {employees, roles});
 };
 
 
