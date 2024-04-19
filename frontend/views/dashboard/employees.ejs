@@ -1,7 +1,7 @@
 <%- include('../partials/_head.ejs'); %>
   <%- include('./partials/dashboard.navbar.ejs'); %>
 
-    <!-- Modal -->
+    <!-- Add Employee Modal -->
     <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addEmployeeModalLabel"
       aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -134,68 +134,259 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Add Employee</button>
+              <button type="submit" class="btn btn-success">Add Employee</button>
             </div>
           </form>
         </div>
       </div>
     </div>
 
-<div class="employees mt-5">
-  <div class="container-fluid">
-    <div class="card text-bg-light mb-3">
-      <div class="card-header">
-        <div class="row d-flex justify-content-between align-items-center">
-          <div class="col">List of Employees</div>
-          <div class="col-auto">
-            <button type="button" class="btn btn-success btn-rounded" data-mdb-ripple-init data-bs-toggle="modal" data-bs-target="#addEmployeeModal">Add Employee</button>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table" id="table">
-              <thead>
-                <tr>
-                  <th scope="col">Employee ID</th>
-                  <th scope="col">First Name</th>
-                  <th scope="col">Last Name</th>
-                  <th scope="col">Middle Name</th>
-                  <th scope="col">Role</th>
-                  <th scope="col">Employment Status</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% employees.forEach(function(employee) { %>
-                  <tr>
-                    <td><%= employee.employeeID %></td>
-                    <td><%= employee.firstName %></td>
-                    <td><%= employee.lastName %></td>
-                    <td><%= employee.middleName %></td>
-                    <td><%= employee.role %></td>
-                    <td><%= employee.employmentStatus %></td>
-                    <td>
-                      <button type="button" class="btn btn-info btn-floating" data-mdb-ripple-init>
-                        <i class="bi bi-info-circle-fill"></i>
-                      </button>
-                      <button type="button" class="btn btn-primary btn-floating" data-mdb-ripple-init>
-                        <i class="bi bi-pencil-square"></i>
-                      </button>
-                      <button type="button" class="btn btn-danger btn-floating" data-mdb-ripple-init>
-                        <i class="bi bi-trash-fill"></i>
-                      </button>
-                    </td>
-                  </tr>
-                <% }); %>
-              </tbody>
-            </table>
+    <!-- Info Employee Modal -->
+    <% employees.forEach(employee=> { %>
+      <div class="modal fade" id="infoEmployeeModal" tabindex="-1" aria-labelledby="infoEmployeeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <form id="addEmployeeForm" method="POST">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="infoEmployeeModalLabel">Employee Information</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+
+                <h6>Personal Information</h6>
+                <div class="row g-2  mb-2">
+                  <div class="col-md">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="firstName" name="firstName" placeholder=""
+                        value="<%= employee.firstName %>" disabled>
+                      <label for="floatingInputGrid">First Name</label>
+                    </div>
+                  </div>
+                  <div class="col-md">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="lastName" name="lastName" placeholder=""
+                        value="<%= employee.lastName %>" disabled>
+                      <label for="lastName">Last Name</label>
+                    </div>
+                  </div>
+                  <div class="col-md">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="middleName" name="middleName" placeholder=""
+                        value="<%= employee.middleName %>" disabled>
+                      <label for="middleName">Middle Name</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row g-2 mb-4">
+                  <div class="col-md">
+                    <div class="form-floating">
+                      <input type="date" class="form-control" id="birthdate" name="birthdate" placeholder=""
+                        value="<%= employee.birthdate.$date %>" disabled>
+                      <label for="birthdate">Birthdate</label>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="form-floating mb-2">
+                  <input type="text" class="form-control" id="address" name="address" placeholder=""
+                    value="<%= employee.address %>" disabled>
+                  <label for="address">Address</label>
+                </div>
+
+                <div class="row g-2 mb-4">
+                  <div class="col">
+                    <div class="form-floating">
+                      <input type="email" class="form-control" id="email" name="email" placeholder=""
+                        value="<%= employee.email %>" disabled>
+                      <label for="email">Email</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="phoneNo" name="phoneNo" placeholder=""
+                        value="<%= employee.phoneNo %>" disabled>
+                      <label for="phoneNo">Phone No. (Ex. 9123..)</label>
+                    </div>
+                  </div>
+                </div>
+
+                <h6>Employment Information</h6>
+                <div class="row g-2 mb-4">
+                  <div class="col">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="employeeID" name="employeeID" placeholder=""
+                        value="<%= employee.employeeID %>" disabled>
+                      <label for="employeeID">Employee ID</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-floating">
+                      <select class="form-select" id="role" name="role" aria-label="Select Role" disabled>
+                        <% roles.forEach(function(role) { %>
+                          <option selected value="<%= role.id %>">
+                            <%= role.name %>
+                          </option>
+                          <% }); %>
+                      </select>
+                      <label for="role">Position/Role</label>
+                    </div>
+                  </div>
+
+                  <div class="row g-2 mb-2">
+                    <div class="col">
+                      <div class="form-floating">
+                        <input type="date" class="form-control" id="dateOfHire" name="dateOfHire" placeholder=""
+                          value="">
+                        <label for="dateOfHire">Date of Hire</label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-floating">
+                        <div class="form-floating">
+                          <select class="form-select" id="employmentStatus" name="employmentStatus"
+                            aria-label="Select Employment Status">
+                            <option value="Full Time">Full Time</option>
+                            <option value="Part Time">Part Time</option>
+                            <option value="Contractor">Contractor</option>
+                            <option value="Intern">Intern</option>
+                          </select>
+                          <label for="employmentStatus">Employment Status</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <h6>Emergency Contact Information</h6>
+                <div class="row g-2 mb-2">
+                  <div class="col">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="emcon_fullname" name="emcon_fullname" placeholder=""
+                        value="">
+                      <label for="emcon_fullname">Full Name</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="emcon_relationship" name="emcon_relationship"
+                        placeholder="" value="">
+                      <label for="emcon_relationship">Relationship</label>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="form-floating mb-4">
+                  <input type="text" class="form-control" id="emcon_address" name="emcon_address" placeholder=""
+                    value="">
+                  <label for="emcon_address">Address</label>
+                </div>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success">Add Employee</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+      <% }); %>
+        <!-- Delete Confirm Modal -->
+        <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteConfirmModalLabel">Please confirm</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Are you sure you want to delete this data?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Delete data</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="employees mt-5">
+          <div class="container-fluid">
+            <div class="card text-bg-light mb-3">
+              <div class="card-header">
+                <div class="row d-flex justify-content-between align-items-center">
+                  <div class="col">List of Employees</div>
+                  <div class="col-auto">
+                    <button type="button" class="btn btn-success btn-rounded" data-mdb-ripple-init
+                      data-bs-toggle="modal" data-bs-target="#addEmployeeModal">Add Employee</button>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table" id="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Employee ID</th>
+                          <th scope="col">First Name</th>
+                          <th scope="col">Last Name</th>
+                          <th scope="col">Middle Name</th>
+                          <th scope="col">Role</th>
+                          <th scope="col">Employment Status</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% employees.forEach(function(employee) { %>
+                          <tr>
+                            <td>
+                              <%= employee.employeeID %>
+                            </td>
+                            <td>
+                              <%= employee.firstName %>
+                            </td>
+                            <td>
+                              <%= employee.lastName %>
+                            </td>
+                            <td>
+                              <%= employee.middleName %>
+                            </td>
+                            <td>
+                              <%= employee.role %>
+                            </td>
+                            <td>
+                              <%= employee.employmentStatus %>
+                            </td>
+                            <td>
+                              <button type="button" class="btn btn-info btn-floating" data-mdb-ripple-init
+                                data-bs-toggle="modal" data-bs-target="#infoEmployeeModal"
+                                data-bs-id="<%= employee.id %>">
+                                <i class="bi bi-info-circle-fill"></i>
+                              </button>
+                              <button type="button" class="btn btn-secondary btn-floating" data-mdb-ripple-init>
+                                <i class="bi bi-pencil-square"></i>
+                              </button>
+                              <button type="button" class="btn btn-danger btn-floating" data-mdb-ripple-init
+                                data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"
+                                data-bs-id="<%= employee.id %>">
+                                <i class="bi bi-trash-fill"></i>
+                              </button>
+
+                            </td>
+                          </tr>
+                          <% }); %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
 
-      <%- include('../partials/_body.ejs'); %>
+        <%- include('../partials/_body.ejs'); %>
