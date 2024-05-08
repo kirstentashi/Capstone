@@ -69,7 +69,7 @@ mongoose.connect(MONGODB_URL)
     .then(() => {
         console.log('MongoDB connected');
         const server = app.listen(PORT, () => {
-            console.log(`✔ Server started on port http://localhost:${PORT}/roles`);
+            console.log(`✔ Server started on port http://localhost:${PORT}`);
         });
     })
     .catch(err => {

@@ -133,6 +133,11 @@
     --primary: #046A38;
   }
 
+  .required::after {
+    content: ' *';
+    color: red;
+}
+
   /* Menu */
 
 .item .image {

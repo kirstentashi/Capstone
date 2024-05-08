@@ -29,11 +29,11 @@ exports.getRoles = async (req, res, next) => {
 
         const roles = await Role.find({}).sort({ createdAt: -1 });
 
-        res.status(201).json({ roles, type: 'success', text: 'Role fetched successfully' });
+        res.status(201).json({ type: 'success', message: 'Role fetched successfully' });
 
     } catch (error) {
 
-        res.status(500).json({ type: 'error', text: 'Failed to fetch Role. Please try again.' });
+        res.status(500).json({ type: 'error', message: 'Failed to fetch Role. Please try again.' });
 
     }
 }

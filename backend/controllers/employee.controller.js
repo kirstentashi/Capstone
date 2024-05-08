@@ -1,4 +1,4 @@
-const Employee = require('../models/employee.schema');
+const Customer = require('../models/reservation.schema');
 
 exports.createEmployee = async (req, res, next) => {
     try {

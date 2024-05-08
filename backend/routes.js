@@ -7,6 +7,7 @@ const page = require('./controllers/page.controller');
 const role = require('./controllers/role.controller');
 const settings = require('./controllers/settings.controller');
 const employee = require('./controllers/employee.controller');
+const reservation = require('./controllers/reservation.controller');
 
 // Pages
 router.get('/', page.home);
@@ -19,6 +20,7 @@ router.get('/dashboard', page.dashboard);
 router.get('/auth', page.auth);
 router.get('/dashboard/settings', page.settings);
 router.get('/dashboard/users/employees', page.employees);
+router.get('/dashboard/restaurant/reservations', page.reservations);
 
 // Roles
 router.post('/dashboard/create-role', upload.none(), role.createRole);
@@ -35,4 +37,10 @@ router.get('/dashboard/settings', settings.getSettings);
 // Employee
 router.post('/dashboard/users/employees/createEmployee', upload.none(), employee.createEmployee);
 router.get('/dashboard/users/employees', employee.getEmployees);
+
+
+// Reservation
+router.post('/dashboard/restaurant/reservations/createReservation', upload.none(), reservation.createReservation);
+router.get('/dashboard/restaurant/reservations/', reservation.getReservations);
+
 module.exports = router;

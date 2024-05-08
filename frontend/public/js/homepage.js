@@ -10,4 +10,13 @@ document.addEventListener("DOMContentLoaded", function () {
         listItem.innerHTML = `<a class="dropdown-item" href="${href}">${text}</a>`;
         dropdownMenu.appendChild(listItem);
     });
+
+
+    // -------- Date field - reservation form
+    // Get the current date
+    var currentDate = new Date().toISOString().split('T')[0];
+
+    // Set the current date as the value of the input field
+    document.getElementById('date').value = currentDate;
+    // -------- / Date field - reservation form
 });
