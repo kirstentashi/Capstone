@@ -14,10 +14,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         const formData = new FormData(reservationForm);
         const jsonObject = {};
 
-        // Convert FormData to JSON
-        formData.forEach((value, key) => {
-            jsonObject[key] = value;
-        });
 
         try {
             const response = await axios.post('/dashboard/restaurant/reservations/createReservation', jsonObject);
