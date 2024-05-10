@@ -17,11 +17,14 @@ const reservationSchema = new mongoose.Schema({
         required: true,
     },
 
-    table: {
-        type: Date,
+    pax: {
+        type: Number,
+        required: true,
     },
+
     phoneNo: {
         type: String,
+        required: true,
     },
 
     email: {
@@ -31,6 +34,7 @@ const reservationSchema = new mongoose.Schema({
 
     requests: {
         type: String,
+        required: true,
     },
 
     createdAt: {
