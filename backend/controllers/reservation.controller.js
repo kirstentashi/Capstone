@@ -1,11 +1,11 @@
-const Reservation = require('../models/reservation.schema'); 
+const Reservation = require('../models/reservation.schema');
 
 exports.createReservation = async (req, res, next) => {
     try {
         const { name, date, time, pax, phoneNo, email, requests } = req.body;
-        
+
         // Check if any of the fields are empty
-        const fields = { name, pax, date, phoneNo, email, requests };
+        const fields = { name, pax, date, phoneNo, email };
         for (const key in fields) {
             if (!fields[key]) {
                 return res.status(400).json({ type: 'error', message: 'Please fill up the required fields in the reservation form.' });

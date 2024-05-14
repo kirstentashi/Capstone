@@ -19,8 +19,9 @@ router.get('/menu', page.menu);
 router.get('/dashboard', page.dashboard);
 router.get('/auth', page.auth);
 router.get('/dashboard/settings', page.settings);
-router.get('/dashboard/users/employees', page.employees);
+router.get('/dashboard/restaurant/users/employees', page.employees);
 router.get('/dashboard/restaurant/reservations', page.reservations);
+router.get('/dashboard/restaurant/roles', page.roles)
 
 // Roles
 router.post('/dashboard/create-role', upload.none(), role.createRole);

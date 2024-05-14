@@ -34,7 +34,11 @@ const reservationSchema = new mongoose.Schema({
 
     requests: {
         type: String,
-        required: true,
+        default: undefined
+    },
+    
+    status: {
+        type: String,
     },
 
     createdAt: {
