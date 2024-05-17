@@ -34,7 +34,6 @@ const reservationSchema = new mongoose.Schema({
 
     requests: {
         type: String,
-        default: undefined
     },
     
     status: {

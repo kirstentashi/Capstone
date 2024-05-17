@@ -6,7 +6,7 @@
       aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-          <form id="dashboardReservationForm" method="POST">
+          <form id="dashboardReservationForm" method="POST" action="/dashboard/restaurant/reservations/createReservation">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="addReservationModalLabel">Add Reservation</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -243,7 +243,25 @@
         });
       });
 
+      
+        // Function to add reservation to the table
+        function addReservationToTable(reservation) {
+      const tableBody = document.querySelector('#table tbody');
+      const newRow = document.createElement('tr');
+      newRow.innerHTML = `
+        <td>${reservation.date}</td>
+        <td>${reservation.time}</td>
+        <td>${reservation.name}</td>
+        <td>${reservation.table}</td>
+        <td>${reservation.pax}</td>
+      `;
+      tableBody.appendChild(newRow);
+        };
     </script>
+
+
+
+
 
 
 

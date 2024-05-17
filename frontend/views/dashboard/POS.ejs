@@ -1,0 +1,366 @@
+<%- include('../partials/_head.ejs'); %>
+
+    <style>
+        /* Apply styles to labels when their associated radio inputs are checked */
+        input[type="radio"].payment-method-options:checked+label {
+            background-color: #E9F3FF !important;
+            border-color: #1B84FF !important;
+            
+        }
+    </style>>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Point of Sale</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Checkout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row mt-5">
+            <div class="col-md-8">
+                <h2>Menu</h2>
+                <!-- Item list -->
+                <div class="row">
+                    <% items.forEach(item=> { %>
+                        <!-- Item -->
+                        <div class="col-md-3 mb-3">
+                            <div class="card shadow-0 border">
+                                <!-- <img src="<%= item.image.url %>" class="card-img-top" alt="..."> -->
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <%= item.name %>
+                                    </h4>
+                                    <p class="card-text cart-item-grant-total text-success">
+                                        <%= item.price %> PHP
+                                    </p>
+                                    <p class="card-text">Stock: <%= item.stock %>
+                                    </p> <!-- Add stock display -->
+                                    <div class="input-group mb-3">
+                                        <button class="btn btn-outline-secondary minus-btn" type="button">-</button>
+                                        <input type="text" class="form-control quantity-input" placeholder="Quantity"
+                                            aria-label="Quantity" aria-describedby="basic-addon2" value="1">
+                                        <button class="btn btn-outline-secondary plus-btn" type="button">+</button>
+                                    </div>
+                                    <a href="#" class="btn btn-success add-to-cart-btn" data-product="<%= item.name %>"
+                                        data-price="<%= item.price %>">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <% }) %>
+                </div>
+            </div>
+            <div class="col-md-4">
+
+                <div class="card mb-3 shadow-0 border">
+                    <div class="card-header pt-5 d-flex justify-content-between align-items-stretch flex-wrap">
+                        <h3 class="card-title fw-bold text-gray-800 fs-2qx">Current Order</h3>
+
+                        <!--begin::Toolbar-->
+                        <div class="card-toolbar">
+                            <button class="btn btn-danger" id="clear-cart-btn">Clear Cart</button>
+                        </div>
+                        <!--end::Toolbar-->
+                    </div>
+                    <div class="card-body">
+                        <!-- <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+                        <table class="table table-borderless">
+
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cart-list">
+                                <!-- Cart items will be dynamically added here -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="d-flex bg-success rounded-3 p-4 mb-5 justify-content-between align-items-center">
+                        <div class="fs-6 fw-bold text-white">
+                            <span class="d-block lh-1 mb-2">Subtotal</span>
+                            <span class="d-block mb-2">Discounts</span>
+                            <span class="d-block mb-5">Tax(12%)</span>
+                            <span class="d-block fs-2qx lh-1">Total</span>
+                        </div>
+
+                        <div class="fs-6 fw-bold text-white text-end">
+                            <span class="d-block lh-1 mb-2" id="total">$100.50</span>
+                            <span class="d-block mb-2" id="discount">-$8.00</span>
+                            <span class="d-block mb-5" id="tax">$11.20</span>
+                            <span class="d-block fs-5 lh-1" id="grant-total">0</span>
+                        </div>
+                    </div>
+
+                    <div class="mx-4 my-0">
+                        <h4 class="fw-bold mb-3">Payment Method</h4>
+                        <div class="d-flex flex-equal gap-5 gap-xxl-9 px-0 mb-5">
+                            <!-- Cash -->
+                            <input class="btn-check payment-method-options" type="radio" name="method" value="0"
+                                id="cash">
+                            <label for="cash" class="btn bg-light w-100 border border-3 shadow-0 active">
+                                <i class="bi bi-cash-coin"></i>
+                                <span class="fs-7 fw-bold d-block">Cash</span>
+                            </label>
+
+                            <!-- Card -->
+                            <input class="btn-check payment-method-options" type="radio" name="method" value="0"
+                                id="card">
+                            <label for="card" class="btn bg-light w-100 border border-3 active shadow-0">
+                                <i class="bi bi-credit-card-fill"></i>
+                                <span class="fs-7 fw-bold d-block">Card</span>
+                            </label>
+
+                            <!-- E-Wallet -->
+                            <input class="btn-check payment-method-options" type="radio" name="method" value="0"
+                                id="ewallet">
+                            <label for="ewallet" class="btn bg-light w-100 border border-3 active shadow-0">
+                                <i class="bi bi-paypal"></i>
+                                <span class="fs-7 fw-bold d-block">E-Wallet</span>
+                            </label>
+
+                        </div>
+                        <button class="btn btn-primary fs-5 w-100 print-bill-btn">Print Bills</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const minusButtons = document.querySelectorAll('.minus-btn');
+            const plusButtons = document.querySelectorAll('.plus-btn');
+            const quantityInputs = document.querySelectorAll('.quantity-input');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+            const cartList = document.getElementById('cart-list');
+            const totalPriceDisplay = document.getElementById('grant-total');
+
+            let totalPrice = 0;
+
+            function updateTotalPrice() {
+                totalPrice = 0;
+                cartList.querySelectorAll('.cart-item').forEach(function (item) {
+                    totalPrice += parseFloat(item.dataset.price) * parseInt(item.querySelector('.cart-item-quantity').innerText);
+                });
+                totalPriceDisplay.innerText = totalPrice.toFixed(2);
+            }
+
+            function updateCartItemQuantity(item, quantity) {
+                item.querySelector('.cart-item-quantity').innerText = quantity;
+                updateTotalPrice();
+            }
+
+
+            function addToCart(product, price, quantity) {
+                const existingItem = cartList.querySelector(`.cart-item[data-product="${product}"]`);
+                if (existingItem) {
+                    existingItem.querySelector('.cart-item-quantity').innerText = quantity; // Set quantity to new value
+                    existingItem.querySelector('.cart-item-grant-total').innerText = calculateTotalPrice(price, quantity); // Update total price
+                    // Change button text to indicate the product is in the cart
+                    const addButton = document.querySelector(`.add-to-cart-btn[data-product="${product}"]`);
+                    addButton.innerText = "Update Cart";
+                } else {
+                    const listItem = document.createElement('tr');
+                    listItem.classList.add('cart-item');
+                    listItem.dataset.price = price;
+                    listItem.dataset.product = product;
+                    listItem.innerHTML = `
+                        <td>${product}</td>
+                        <td>
+                            <div class="input-group">
+                            <button class="btn btn-outline-secondary minus-btn-cart" type="button">-</button>
+                            <span class="px-3 cart-item-quantity">${quantity}</span>
+                            <button class="btn btn-outline-secondary plus-btn-cart" type="button">+</button>
+                            </div>
+                        </td>
+                        <td> <span class="cart-item-grant-total">${calculateTotalPrice(price, quantity)}</span></td>
+                        <td><button type="button" class="btn btn-dark btn-floating deleteBtnCart" data-mdb-ripple-init><i class="bi bi-trash-fill"></i></button></td>
+        `;
+                    cartList.appendChild(listItem);
+                    updateTotalPrice();
+
+                    // Change button text to indicate the product is in the cart
+                    const addButton = document.querySelector(`.add-to-cart-btn[data-product="${product}"]`);
+                    addButton.innerText = "Update Cart";
+
+                    const minusButtonsCart = document.querySelectorAll('.minus-btn-cart');
+                    const newItemPlusBtn = listItem.querySelector('.plus-btn-cart');
+                    const deleteBtnCart = document.querySelectorAll('.deleteBtnCart');
+
+                    // Event listener for decrementing quantity in the cart
+                    minusButtonsCart.forEach(function (button) {
+                        button.addEventListener('click', function () {
+                            const listItem = button.parentElement.parentElement.parentElement;
+                            let currentItemQuantity = parseInt(listItem.querySelector('.cart-item-quantity').innerText);
+                            if (currentItemQuantity > 1) {
+                                currentItemQuantity--;
+                                listItem.querySelector('.cart-item-quantity').innerText = currentItemQuantity;
+                                listItem.querySelector('.cart-item-grant-total').innerText = calculateTotalPrice(parseFloat(listItem.dataset.price), currentItemQuantity); // Update total price
+                                updateTotalPrice();
+                            } else if (currentItemQuantity === 1) {
+                                currentItemQuantity = 0; // Set quantity to 0
+                                listItem.querySelector('.cart-item-quantity').innerText = currentItemQuantity;
+                                listItem.querySelector('.cart-item-grant-total').innerText = calculateTotalPrice(parseFloat(listItem.dataset.price), currentItemQuantity); // Update total price
+                                listItem.remove(); // Remove the item from the cart
+                                updateTotalPrice();
+                                const addButton = document.querySelector(`.add-to-cart-btn[data-product="${listItem.dataset.product}"]`);
+                                addButton.innerText = "Add to cart";
+                            }
+                        });
+                    });
+
+                    newItemPlusBtn.addEventListener('click', function () {
+                        let currentItemQuantity = parseInt(listItem.querySelector('.cart-item-quantity').innerText);
+                        currentItemQuantity++;
+                        listItem.querySelector('.cart-item-quantity').innerText = currentItemQuantity;
+                        listItem.querySelector('.cart-item-grant-total').innerText = calculateTotalPrice(price, currentItemQuantity); // Update total price
+                        updateTotalPrice();
+                    })
+
+                    deleteBtnCart.forEach(function (button) {
+                        button.addEventListener('click', function () {
+                            const listItem = this.parentElement.parentElement;
+                            listItem.remove(); // Remove the item from the cart
+                            const addButton = document.querySelector(`.add-to-cart-btn[data-product="${listItem.dataset.product}"]`);
+                            addButton.innerText = "Add to cart";
+
+                            // Check if cart is empty
+                            const cartItems = document.querySelectorAll('.cart-item');
+                            if (cartItems.length === 0) {
+                                updateTotalPrice(0); // Update total price to 0 if cart is empty
+                            } else {
+                                updateTotalPrice(); // Update total price normally
+                            }
+                        });
+                    });
+                }
+            }
+
+            function calculateTotalPrice(price, quantity) {
+                return `${(price * quantity).toFixed(2)} PHP`;
+            }
+
+            minusButtons.forEach(function (button, index) {
+                button.addEventListener('click', function () {
+                    const input = button.parentElement.querySelector('.quantity-input');
+                    let currentValue = parseInt(input.value);
+                    if (currentValue > 1) {
+                        currentValue--;
+                        input.value = currentValue;
+                        updateCartItemQuantity(currentItem, currentValue);
+                    }
+                });
+            });
+
+            plusButtons.forEach(function (button, index) {
+                button.addEventListener('click', function () {
+                    const input = button.parentElement.querySelector('.quantity-input');
+                    let currentValue = parseInt(input.value);
+                    currentValue++;
+                    input.value = currentValue;
+                    updateCartItemQuantity(currentItem, currentValue);
+                });
+            });
+
+            addToCartButtons.forEach(function (button) {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const product = button.dataset.product;
+                    const price = parseFloat(button.dataset.price);
+                    const quantity = parseInt(button.parentElement.querySelector('.quantity-input').value);
+                    addToCart(product, price, quantity);
+                    updateTotalPrice();
+                });
+            });
+
+            // Event listener for quantity inputs in the product list
+            quantityInputs.forEach(function (input) {
+                input.addEventListener('change', function () {
+                    const product = input.dataset.product;
+                    const quantity = parseInt(input.value);
+                    const existingItem = cartList.querySelector(`.cart-item[data-product="${product}"]`);
+                    if (existingItem) {
+                        existingItem.querySelector('.cart-item-quantity').innerText = quantity;
+                        updateTotalPrice();
+                    }
+                });
+            });
+
+            const clearCartButton = document.getElementById('clear-cart-btn');
+
+            clearCartButton.addEventListener('click', function () {
+                // Remove all items from the cart list
+                cartList.innerHTML = '';
+                // Reset total price to 0
+                totalPrice = 0;
+                totalPriceDisplay.innerText = totalPrice.toFixed(2);
+                // Reset product buttons in the product list
+                addToCartButtons.forEach(function (button) {
+                    button.innerText = "Add to Cart";
+                });
+            });
+
+            // Event listener for printing bills
+            const printButton = document.querySelector('.print-bill-btn');
+            printButton.addEventListener('click', function () {
+                const billContent = generateBillContent();
+
+                // Create a new window for printing
+                const printWindow = window.open('', '_blank');
+                printWindow.document.open();
+                printWindow.document.write(`<html><head><title>Print Bill</title></head><body>${billContent}</body></html>`);
+                printWindow.document.close();
+
+                // Initiate printing
+                printWindow.print();
+            });
+
+            // Function to generate bill content
+            function generateBillContent() {
+                // Gather necessary information from the current order section
+                const productList = [];
+                document.querySelectorAll('.cart-item').forEach(function (item) {
+                    const productName = item.querySelector('td:first-child').innerText;
+                    const quantity = item.querySelector('.cart-item-quantity').innerText;
+                    const total = item.querySelector('.cart-item-grant-total').innerText;
+                    productList.push(`${productName} x ${quantity} - ${total}`);
+                });
+
+                // Generate bill content
+                let billContent = '<h2>Bill</h2>';
+                billContent += productList.join('<br>');
+                billContent += `<p>Total: ${totalPriceDisplay.innerText}</p>`;
+
+                return billContent;
+            }
+        });
+    </script>
+
+    <%- include('../partials/_body.ejs'); %>

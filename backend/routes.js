@@ -8,6 +8,7 @@ const role = require('./controllers/role.controller');
 const settings = require('./controllers/settings.controller');
 const employee = require('./controllers/employee.controller');
 const reservation = require('./controllers/reservation.controller');
+const item = require('./controllers/item.controller');
 
 // Pages
 router.get('/', page.home);
@@ -21,7 +22,9 @@ router.get('/auth', page.auth);
 router.get('/dashboard/settings', page.settings);
 router.get('/dashboard/restaurant/users/employees', page.employees);
 router.get('/dashboard/restaurant/reservations', page.reservations);
-router.get('/dashboard/restaurant/roles', page.roles)
+router.get('/dashboard/restaurant/roles', page.roles);
+router.get('/dashboard/pos', page.pos);
+router.get('/dashboard/restaurant/items', page.items)
 
 // Roles
 router.post('/dashboard/create-role', upload.none(), role.createRole);
@@ -39,9 +42,15 @@ router.get('/dashboard/settings', settings.getSettings);
 router.post('/dashboard/users/employees/createEmployee', upload.none(), employee.createEmployee);
 router.get('/dashboard/users/employees', employee.getEmployees);
 
-
 // Reservation
 router.post('/dashboard/restaurant/reservations/createReservation', upload.none(), reservation.createReservation);
 router.get('/dashboard/restaurant/reservations/', reservation.getReservations);
+
+// POS
+
+// Items
+router.get('/dashboard/restaurant/items', item.getItems);
+router.get('/dashboard/restaurant/item/:id', item.getItem);
+router.post('/dashboard/restaurant/item/create', upload.single('image'), item.create);
 
 module.exports = router;

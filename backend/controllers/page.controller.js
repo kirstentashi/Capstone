@@ -2,6 +2,7 @@ const Role = require('../models/role.schema');
 const Settings = require('../models/settings.schema');
 const Employee = require('../models/employee.schema');
 const Reservation = require('../models/reservation.schema');
+const Item = require('../models/item.schema');
 
 exports.home = (req, res) => {
     res.render('home');
@@ -65,4 +66,14 @@ exports.roles = async (req, res, next) => {
 exports.reservations = async (req, res) => {
     const reservations = await Reservation.find();
     res.render('reservations', { reservations })
+}
+
+exports.pos = async (req, res) => {
+    const items = await Item.find();
+    res.render('pos', {items});
+}
+
+
+exports.items = async (req, res) => {
+    res.render('items');
 }
